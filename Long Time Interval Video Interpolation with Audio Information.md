@@ -67,3 +67,7 @@
 # **Future work**
 
 ## In real world, movements often happen without an audio signal. Other techniques are also necessary to be implemented if we want to interpolate long time interval videos. It is necessary for us to test our network on more complicated cases, for example, more balls colliding with each other in the scenario. We also believe that if the inputs include a few initial frames and final frames instead of a single frame and final frame, the model without audio information would also work well, and the model with audio model would work even better.
+
+# **related work**
+
+## Existing work usually uses CNN, RNN, optical-flow and modified versions of those methods to interpolate video frames. However, most of those works only devote to the interpolation of short time intervals. For existing long-time interval interpolation research, only image information is collected to do predictions, producing blurry images which results from a lack of information.
