@@ -26,7 +26,7 @@
 
 # **Mathematical Intuition**
 
-## Before we add the audio information, we have tested one model on the data without ambiguity. The model uses CNN encoder and do linear interpolation on the latent space V. The data set we chose is the one with one ball moving straight. It is a surprise that this model works well with a simple linear interpolation, indicating that the position information of the ball is encoded in the latent variable $$v\  \in V$$, and the linear interpolation is sufficient to do video interpolation.
+## Before we add the audio information, we have tested one model on the data without ambiguity. The model uses CNN encoder and do linear interpolation on the latent space V. The data set we chose is the one with one ball moving straight. It is a surprise that this model works well with a simple linear interpolation, indicating that the position information of the ball is encoded in the latent variable v in space V, and the linear interpolation is sufficient to do video interpolation.
 
 ## Based on this, to unfold the complexity introduced from the collision, we add a control gate W in the latent space V. The control gate behaves as “flipping” operation on the position of the ball. And the control gate takes the relative time of the frame and the collision event, t and tau respectively. A simple example rule would be as t \< tau, a flip operation is applied on v, otherwise, an identity operation is applied.
 
@@ -40,55 +40,31 @@
 
 ## And then we applied elementwise product between ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq2.PNG), here w is the output of the convolution layer for audio information.
 
-$$
-u = w\bigodot\tilde{v}
-$$
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq3.PNG)
 
-To match with the original network, $$u$$ is projected back to V with another
-fully connected layer.
+## To match with the original network, u is projected back to V with another fully connected layer.
 
-$$
-\tilde{u} = \tilde{\mathbf{P}}u
-$$
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq4.PNG)
 
-The new latent variable $$\tilde{u} = \tilde{\mathbf{P}}(w\bigodot\mathbf{P}v)
-\equiv Av\$$is equivalent to apply a matrix A on v to decide whether to flip the
-position encoded in v or not.
+## The new latent variable ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq5.PNG) is equivalent to apply a matrix A on v to decide whether to flip the position encoded in v or not.
 
-Informal proof:
+## Informal proof:
 
-Suppose we project *v* to the $$R^{n^{2}}$$, we have
+## Suppose we project v to the ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq6.PNG), we have
 
-$$v \in R^{n},\ \mathbf{P} \in R^{n^{2} \times n},\tilde{\mathbf{P}} \in R^{{n
-\times n}^{2}},\ w{\in R}^{n^{2}},\ A = R^{n \times n}$$, and $${\tilde{u}}_{i}
-= \sum_{k}^{}{A_{\text{ij}}v_{j}}$$,
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq7.PNG) we can simply take
 
-we can simply take
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq8.PNG)
 
-$$
-\tilde{v} = \mathbf{P}v = \left( v^{T},v^{T},\ \ldots,\ v^{T}\  \right)^{T}
-$$
+## Where ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq9.PNG)
 
-$$
-w = {(A_{11},\ A_{12},\ \ldots,\ A_{1n},\ A_{21},\ A_{22},\ \ldots,\ A_{2n},\ A_{31},\ \ldots.,\ A_{\text{nn}})}^{T}
-$$
+## Then
 
-Where $$\mathbf{P =}{\mathbf{(}\mathbf{I}_{\mathbf{n}}\mathbf{,\
-}\mathbf{I}_{\mathbf{n}}\mathbf{,\ \ldots,\
-}\mathbf{I}_{\mathbf{n}}\mathbf{)}}^{T}$$
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq10.PNG)
 
-Then
+## We can choose ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq11.PNG) otherwise}\ 0$$, such that
 
-$$
-u = w\bigodot\tilde{v} = {(A_{11}v_{1},\ A_{12}v_{2},\ \ldots,\ A_{1n}v_{n},\ A_{21}v_{1},\ A_{22}v_{2},\ \ldots,\ A_{2n}v_{n},\ A_{31}v_{1},\ \ldots.,\ A_{\text{nn}}v_{n})}^{T}
-$$
-
-We can choose $${(\tilde{\mathbf{P}})}_{\text{ij}} = 1,\text{\ if\ }\left( i - 1
-\right)*n < j \leq i*n,\text{\ otherwise}\ 0$$, such that
-
-$$
-\tilde{u} = \tilde{\mathbf{P}}u = \tilde{\mathbf{P}}(w\bigodot\mathbf{P}v) = \left( \sum_{k}^{}{A_{1j}v_{j}},\ \sum_{k}^{}{A_{2j}v_{j}},\ldots,\ \sum_{k}^{}{A_{\text{nj}}v_{j}} \right) = Av
-$$
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq12.PNG)
 
 # **Results:**
 
