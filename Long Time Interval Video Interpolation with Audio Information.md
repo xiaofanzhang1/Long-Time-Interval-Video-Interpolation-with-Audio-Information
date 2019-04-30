@@ -16,7 +16,7 @@
 
 # **Data and Model:**
 
-# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/model.png)
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/model-1.png)
 
 ### Fig. 2. The network
 
@@ -36,11 +36,9 @@
 
 ## The control gate is achieved as first we project the latent variable *v* to a large space, which is one additional fully connected layer in the model.
 
-$$
-\tilde{v} = \mathbf{P}v
-$$
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq1.PNG)
 
-## And then we applied elementwise product between $$\tilde{v}$$ and $$w \in W$$, here w is the output of the convolution layer for audio information.
+## And then we applied elementwise product between ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq2.PNG), here w is the output of the convolution layer for audio information.
 
 $$
 u = w\bigodot\tilde{v}
