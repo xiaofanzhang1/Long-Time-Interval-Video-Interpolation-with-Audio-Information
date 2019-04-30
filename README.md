@@ -24,7 +24,7 @@ As shown in Fig. 2., our model contains three parts. An encoder consisting of 5 
 
 For the audio part, a control parameter T, indicating the relative time of intermediate frame, is used in the latent space to linearly interpolate of latent variables from the two input images. To include the audio information, a one-dimension convolutional network is used to preprocess the audio wave. With a mathematical intuition introduced below, we incorporate the audio information, along with the relative time of input and output frames, to a latent space W with the same dimension as V. And elementwise products are applied on the latent variables from W and V for each inputs and output, respectively.
 
-# **Mathematical Intuition**
+# **Mathematical Intuition:**
 
 Before we add the audio information, we have tested one model on the data without ambiguity. The model uses CNN encoder and do linear interpolation on the latent space V. The data set we chose is the one with one ball moving straight. It is a surprise that this model works well with a simple linear interpolation, indicating that the position information of the ball is encoded in the latent variable v in space V, and the linear interpolation is sufficient to do video interpolation.
 
@@ -42,7 +42,7 @@ To match with the original network, u is projected back to V with another fully 
 # ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq4.PNG)
 The new latent variable ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq5.PNG) is equivalent to apply a matrix A on v to decide whether to flip the position encoded in v or not.
 
-## Informal proof:
+#### Informal proof:
 
 Suppose we project v to the ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq6.PNG), we have
 # ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq7.PNG) 
@@ -72,10 +72,10 @@ Our main purpose in this study is to figure out if audio information can help im
 
 As shown in Fig. 4., the results match our expectation. When there exists colliding, the model with audio information works well, whereas the other model without audio information gives vague path. After 200 epoch training, training loss decreases to 4% for the model without using audio information, and 2% for the model with using audio sound. Test loss for model with audio information is about 43.7% that of model without audio.
 
-# **Future work**
+# **Future work:**
 
 In real world, movements often happen without an audio signal. Other techniques are also necessary to be implemented if we want to interpolate long time interval videos. It is necessary for us to test our network on more complicated cases, for example, more balls colliding with each other in the scenario. We also believe that if the inputs include a few initial frames and final frames instead of a single frame and final frame, the model without audio information would also work well, and the model with audio model would work even better.
 
-# **Related work**
+# **Related work:**
 
 Existing work usually uses CNN, RNN, optical-flow and modified versions of those methods to interpolate video frames. However, most of those works only devote to the interpolation of short time intervals. For existing long-time interval interpolation research, only image information is collected to do predictions, producing blurry images which results from a lack of information.
