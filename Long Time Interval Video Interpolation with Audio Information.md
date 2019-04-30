@@ -62,6 +62,14 @@
 
 ### Fig. 4. Result comparing between models with and without audio information
 
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/losswo.PNG)
+
+### Fig. 5. Training loss for model without audio
+
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/lossw.PNG)
+
+### Fig. 6. Training loss for model with audio
+
 ## As shown in Fig. 4., the results match our expectation. When there exists colliding, the model with audio information works well, whereas the other model without audio information gives vague path. After 200 epoch training, training loss decreases to 4% for the model without using audio information, and 2% for the model with using audio sound. Test loss for model with audio information is about 43.7% that of model without audio.
 
 # **Future work**
