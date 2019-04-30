@@ -62,7 +62,7 @@
 
 ### Fig. 4. Result comparing between models with and without audio information
 
-## The results match our expectation. When there exists colliding, the model with audio information works well, whereas the other model without audio information gives vague path. After 200 epoch training, training loss decreases to 4% for the model without using audio information, and 2% for the model with using audio sound. Test loss for model with audio information is about 43.7% that of model without audio.
+## As shown in Fig. 4., the results match our expectation. When there exists colliding, the model with audio information works well, whereas the other model without audio information gives vague path. After 200 epoch training, training loss decreases to 4% for the model without using audio information, and 2% for the model with using audio sound. Test loss for model with audio information is about 43.7% that of model without audio.
 
 # **Future work**
 
