@@ -35,35 +35,23 @@
 ### Fig. 3. Intuition operation
 
 ## The control gate is achieved as first we project the latent variable *v* to a large space, which is one additional fully connected layer in the model.
-
 # ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq1.PNG)
-
 ## And then we applied elementwise product between ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq2.PNG), here w is the output of the convolution layer for audio information.
-
 # ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq3.PNG)
-
 ## To match with the original network, u is projected back to V with another fully connected layer.
-
 # ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq4.PNG)
-
 ## The new latent variable ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq5.PNG) is equivalent to apply a matrix A on v to decide whether to flip the position encoded in v or not.
 
 ## Informal proof:
 
 ## Suppose we project v to the ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq6.PNG), we have
-
-# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq7.PNG) we can simply take
-
+# ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq7.PNG) 
+## we can simply take
 # ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq8.PNG)
-
 ## Where ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq9.PNG)
-
 ## Then
-
 # ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq10.PNG)
-
-## We can choose ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq11.PNG) otherwise}\ 0$$, such that
-
+## We can choose ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq11.PNG) otherwise 0, such that
 # ![](https://github.com/xiaofanzhang1/Long-Time-Interval-Video-Interpolation-with-Audio-Information/blob/master/eq12.PNG)
 
 # **Results:**
